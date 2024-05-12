@@ -24,6 +24,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private ActivityResultLauncher<Intent> arl;
     private Intent intent2;
+    private Uri uri2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,13 @@ public class RegistroActivity extends AppCompatActivity {
                 binding.etDni.setText(usuario.getDni().toString());
                 binding.etEmail2.setText(usuario.getMail());
                 binding.etPass2.setText(usuario.getPassword().toString());
-                binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto()));
+                binding.tvUri.setText(usuario.getFoto());
+                binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto().trim()));
+                Log.d("miUri","entro");
+                Log.d("miUri",usuario.getFoto().trim());
+                Log.d("miUri",usuario.getFoto());
+
+
             }
         });
 
@@ -52,7 +59,9 @@ public class RegistroActivity extends AppCompatActivity {
                 Usuario usuario = new Usuario(binding.etNombre.getText().toString(),binding.etApellido.getText().toString(),
                         Long.parseLong(binding.etDni.getText().toString()),binding.etEmail2.getText().toString(),binding.etPass2.getText().toString());
                //recupero la uri de la ivFoto para guardarla dentro del usuario registrado en forma de string
-                usuario.setFoto((String) binding.ivFoto.getTag());
+                //usuario.setFoto(uri2.toString());
+                usuario.setFoto(binding.ivFoto.getTag().toString());
+
 
                 vm.guardarObjeto(usuario);
             }
@@ -71,6 +80,8 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onChanged(Uri uri) {
                 binding.ivFoto.setImageURI(uri);
+                binding.ivFoto.setTag(uri);
+                //uri2=uri;
             }
         });
 
