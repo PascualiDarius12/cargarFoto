@@ -1,5 +1,7 @@
 package com.moviles.cargarfoto.Modelo;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
@@ -8,6 +10,7 @@ public class Usuario implements Serializable {
     private Long dni;
     private String mail;
     private String password;
+    private String foto;
 
     public Usuario() {
     }
@@ -18,6 +21,7 @@ public class Usuario implements Serializable {
         this.dni = dni;
         this.mail = mail;
         this.password = password;
+
     }
 
     public String getNombre() {
@@ -58,5 +62,13 @@ public class Usuario implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

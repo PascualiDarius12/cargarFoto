@@ -96,8 +96,8 @@
 
     <ImageView
         android:id="@+id/ivFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.915"
@@ -111,6 +111,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subir"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="251dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401" />
 </androidx.constraintlayout.widget.ConstraintLayout>

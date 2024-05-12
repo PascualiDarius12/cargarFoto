@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -21,12 +22,16 @@ public class RegistroActivity extends AppCompatActivity {
     private RegistroActivityViewModel vm;
     private ActivityRegistroBinding binding;
 
+    private ActivityResultLauncher<Intent> arl;
+    private Intent intent2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         vm = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(RegistroActivityViewModel.class);
+
 
         vm.getmUsuario().observe(this, new Observer<Usuario>() {
             @Override
@@ -36,6 +41,7 @@ public class RegistroActivity extends AppCompatActivity {
                 binding.etDni.setText(usuario.getDni().toString());
                 binding.etEmail2.setText(usuario.getMail());
                 binding.etPass2.setText(usuario.getPassword().toString());
+                binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto()));
             }
         });
 
@@ -45,6 +51,8 @@ public class RegistroActivity extends AppCompatActivity {
                 Log.d("entro", "si");
                 Usuario usuario = new Usuario(binding.etNombre.getText().toString(),binding.etApellido.getText().toString(),
                         Long.parseLong(binding.etDni.getText().toString()),binding.etEmail2.getText().toString(),binding.etPass2.getText().toString());
+               //recupero la uri de la ivFoto para guardarla dentro del usuario registrado en forma de string
+                usuario.setFoto((String) binding.ivFoto.getTag());
 
                 vm.guardarObjeto(usuario);
             }
@@ -57,6 +65,8 @@ public class RegistroActivity extends AppCompatActivity {
 
         }
 
+        abrirGaleria();
+
         vm.getUriMutable().observe(this, new Observer<Uri>() {
             @Override
             public void onChanged(Uri uri) {
@@ -65,10 +75,14 @@ public class RegistroActivity extends AppCompatActivity {
         });
 
 
+
         binding.btnCargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                arl.launch(intent);
+
+                arl.launch(intent2);
+
+
             }
         });
     }
@@ -77,7 +91,7 @@ public class RegistroActivity extends AppCompatActivity {
     private void abrirGaleria(){
 
 
-        Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent2=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
 
         arl=registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -88,6 +102,8 @@ public class RegistroActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }
