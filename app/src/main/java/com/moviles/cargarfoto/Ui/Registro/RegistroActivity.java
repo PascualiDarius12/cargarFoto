@@ -43,10 +43,11 @@ public class RegistroActivity extends AppCompatActivity {
                 binding.etDni.setText(usuario.getDni().toString());
                 binding.etEmail2.setText(usuario.getMail());
                 binding.etPass2.setText(usuario.getPassword().toString());
-                binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto().trim()));
-                Log.d("miUri","entro");
-                Log.d("miUri",usuario.getFoto().trim());
-                Log.d("miUri",usuario.getFoto());
+                if (usuario.getFoto() !=null){
+                    binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto().trim()));
+                }
+
+
 
 
             }
@@ -60,8 +61,13 @@ public class RegistroActivity extends AppCompatActivity {
                         Long.parseLong(binding.etDni.getText().toString()),binding.etEmail2.getText().toString(),binding.etPass2.getText().toString());
                //recupero la uri de la ivFoto para guardarla dentro del usuario registrado en forma de string
                 //usuario.setFoto(uri2.toString());
-                if(!binding.ivFoto.getTag().toString().isEmpty()){
+
+
+                if(binding.ivFoto.getTag() != null){
+
                     usuario.setFoto(binding.ivFoto.getTag().toString());
+                }else{
+                    Log.d("entro","sin foto" );
                 }
 
 
