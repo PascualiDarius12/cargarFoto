@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityViewModel vm;
     private ActivityMainBinding binding;
 
-    private static final int REQUEST_CODE_PERMISSIONS = 100;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,28 +60,16 @@ public class MainActivity extends AppCompatActivity {
     private void pedirPermiso() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Los permisos no están concedidos, solicitar permisos
+            // no hay permisos, solicitar permisos
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    REQUEST_CODE_PERMISSIONS);
+                    100);
         } else {
-            // Los permisos ya están concedidos, abrir la galería
+            // Los permisos ya están concedidos, hacer algo?
 
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permiso concedido, abrir la galería
 
-            } else {
-                // Permiso denegado, manejar esta situación (mostrar un mensaje, etc.)
-                Toast.makeText(this, "Permiso de lectura denegado", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+
 }

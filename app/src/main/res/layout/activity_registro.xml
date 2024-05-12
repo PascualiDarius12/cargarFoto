@@ -14,36 +14,36 @@
         android:text="Registro con foto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <EditText
         android:id="@+id/etNombre"
-        android:layout_width="229dp"
-        android:layout_height="51dp"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/etApellido"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <EditText
         android:id="@+id/etApellido"
-        android:layout_width="230dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="76dp"
+        android:layout_width="213dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="92dp"
         android:ems="10"
         android:hint="Apellido"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/etDni"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -57,47 +57,48 @@
 
     <EditText
         android:id="@+id/etDni"
-        android:layout_width="409dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="371dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="44dp"
         android:ems="10"
         android:hint="Dni"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/etEmail2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etEmail2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
+        android:layout_width="370dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="68dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/etPass2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etPass2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="88dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ivFoto"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:src="@drawable/defecto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.915"
@@ -119,14 +120,15 @@
         app:layout_constraintVertical_bias="0.401" />
 
     <TextView
-        android:id="@+id/tvUri"
+        android:id="@+id/tvfotoperfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Foto de perfil:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.116" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

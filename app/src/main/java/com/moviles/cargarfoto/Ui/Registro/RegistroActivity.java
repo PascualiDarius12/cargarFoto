@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -42,7 +43,6 @@ public class RegistroActivity extends AppCompatActivity {
                 binding.etDni.setText(usuario.getDni().toString());
                 binding.etEmail2.setText(usuario.getMail());
                 binding.etPass2.setText(usuario.getPassword().toString());
-                binding.tvUri.setText(usuario.getFoto());
                 binding.ivFoto.setImageURI(Uri.parse(usuario.getFoto().trim()));
                 Log.d("miUri","entro");
                 Log.d("miUri",usuario.getFoto().trim());
@@ -60,7 +60,10 @@ public class RegistroActivity extends AppCompatActivity {
                         Long.parseLong(binding.etDni.getText().toString()),binding.etEmail2.getText().toString(),binding.etPass2.getText().toString());
                //recupero la uri de la ivFoto para guardarla dentro del usuario registrado en forma de string
                 //usuario.setFoto(uri2.toString());
-                usuario.setFoto(binding.ivFoto.getTag().toString());
+                if(!binding.ivFoto.getTag().toString().isEmpty()){
+                    usuario.setFoto(binding.ivFoto.getTag().toString());
+                }
+
 
 
                 vm.guardarObjeto(usuario);
